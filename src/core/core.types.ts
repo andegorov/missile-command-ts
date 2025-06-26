@@ -1,4 +1,4 @@
-export type GameLoopCallback = (delta: number, timestamp: number)=> void;
+export type GameLoopCallback = (delta: number, timestamp: number) => void;
 
 export interface Engine {
     start: () => void;
