@@ -1,0 +1,23 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0px;
+}
+#title {
+    padding: 10px 0px;
+}
+
+#game-canvas {
+    width: 70%;
+    margin: 20px 0px;
+}
