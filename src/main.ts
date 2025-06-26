@@ -1,11 +1,9 @@
 import './style.css';
 
+import { createEngine } from './core/engine';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <h1> 
-    Hello World
-    </h1>
-  </div>
-`;
+const engine = createEngine((delta,time) => {
+  console.log(`delta: ${delta.toFixed(2)}ms, time: ${time.toFixed(0)}ms`);
+});
 
+engine.start();

@@ -1,0 +1,1 @@
+export const MAX_DELTA_FRAME = 100;
