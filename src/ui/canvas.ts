@@ -5,11 +5,15 @@ let context: CanvasContext;
 
 export function initCanvas(): CanvasContext {
     const canvas = document.getElementById(CANVAS_ID) as HTMLCanvasElement;
-
     if (!canvas) throw new Error('Canvas not found');
 
     const ctx = canvas.getContext('2d');
     if (!ctx) throw new Error('Canvas 2D context not supported');
+
+    const resize = () => {
+        context.width = canvas.width;
+        context.height = canvas.height;
+    };
 
     context = {
         canvas,
@@ -18,6 +22,8 @@ export function initCanvas(): CanvasContext {
         height: canvas.height
     };
 
+    resize();
+    window.addEventListener('resize', resize);
     return context;
 }
 
