@@ -3,4 +3,8 @@ export interface CanvasContext {
     ctx: CanvasRenderingContext2D;
     width: number;
     height: number;
+    offsetX: number;
+    offsetY: number;
+    scaleX: number;
+    scaleY: number;
 }

@@ -10,16 +10,27 @@ export function initCanvas(): CanvasContext {
     const ctx = canvas.getContext('2d');
     if (!ctx) throw new Error('Canvas 2D context not supported');
 
+    let rect = canvas.getBoundingClientRect();
+
     const resize = () => {
+        rect = canvas.getBoundingClientRect();
         context.width = canvas.width;
         context.height = canvas.height;
+        context.offsetX = rect.left;
+        context.offsetY = rect.top;
+        context.scaleX = canvas.width / rect.width;
+        context.scaleY = canvas.height / rect.height;
     };
 
     context = {
         canvas,
         ctx,
         width: canvas.width,
-        height: canvas.height
+        height: canvas.height,
+        offsetX: rect.left,
+        offsetY: rect.top,
+        scaleX: canvas.width / rect.width,
+        scaleY: canvas.height / rect.height
     };
 
     resize();

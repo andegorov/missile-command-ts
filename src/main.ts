@@ -6,16 +6,16 @@ import { Missile } from './game/missile';
 import { drawEntities } from './ui/renderer';
 
 const canvasContext = initCanvas();
+const canvas = canvasContext.canvas;
 const entities: Missile[] = [];
 
-canvasContext.canvas.addEventListener('click', (e) => {
-    console.log(e.clientX, ' + ', e.clientY);
+canvas.addEventListener('click', (e) => {
     entities.push(
         new Missile(
-            canvasContext.width / 2,
-            canvasContext.height,
-            e.clientX,
-            e.clientY
+            canvas.width / 2,
+            canvas.height,
+            (e.clientX - canvasContext.offsetX) * canvasContext.scaleX,
+            (e.clientY - canvasContext.offsetY) * canvasContext.scaleY
         )
     );
 });
