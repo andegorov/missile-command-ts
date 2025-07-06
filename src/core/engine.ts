@@ -34,7 +34,7 @@ export function createEngine(callback: GameLoopCallback): Engine {
     return {
         start,
         stop,
-        get isRuning() {
+        get isRunning() {
             return running;
         }
     };

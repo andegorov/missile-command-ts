@@ -1,10 +1,7 @@
 export interface CanvasContext {
     canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
+    rect: DOMRect;
     width: number;
     height: number;
-    offsetX: number;
-    offsetY: number;
-    scaleX: number;
-    scaleY: number;
 }

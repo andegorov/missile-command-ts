@@ -1,21 +1,21 @@
 import './style.css';
 
 import { createEngine } from './core/engine';
-import { clearCanvas, initCanvas } from './ui/canvas';
+import { clearCanvas, getCanvasCoordinates, initCanvas } from './ui/canvas';
 import { Missile } from './game/missile';
 import { drawEntities } from './ui/renderer';
 
-const canvasContext = initCanvas();
-const canvas = canvasContext.canvas;
+const canvas = initCanvas();
+const canvasElement = canvas.canvas;
 const entities: Missile[] = [];
 
-canvas.addEventListener('click', (e) => {
+canvasElement.addEventListener('click', (e) => {
     entities.push(
         new Missile(
             canvas.width / 2,
             canvas.height,
-            (e.clientX - canvasContext.offsetX) * canvasContext.scaleX,
-            (e.clientY - canvasContext.offsetY) * canvasContext.scaleY
+            getCanvasCoordinates('x', e.clientX),
+            getCanvasCoordinates('y', e.clientY)
         )
     );
 });
@@ -29,7 +29,7 @@ const engine = createEngine((delta) => {
         }
     }
 
-    drawEntities(canvasContext.ctx, entities);
+    drawEntities(canvas.ctx, entities);
 });
 
 engine.start();
