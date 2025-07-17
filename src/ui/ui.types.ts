@@ -1,7 +1,9 @@
 export interface CanvasContext {
-    canvas: HTMLCanvasElement;
+    canvasElement: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
-    rect: DOMRect;
     width: number;
     height: number;
+    clear(): void;
+    getCoordinates(direction: 'x' | 'y', clientCoordinates: number): number;
+    destroy(): void;
 }
